@@ -1,7 +1,7 @@
 import 'package:supabase/supabase.dart';
 
 class SupabaseService {
-  final SupabaseClient _client = SupabaseClient('YOUR_SUPABASE_URL', 'YOUR_SUPABASE_KEY');
+  final SupabaseClient _client = SupabaseClient("https://wkruxpotmcgywoovpwzw.supabase.co",'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndrcnV4cG90bWNneXdvb3Zwd3p3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkwMzA2MjcsImV4cCI6MjA1NDYwNjYyN30.wX6UR_xE-AyMPBcN9nKZVvKtnPuLcuz8r_c8FjxQ4_g');
 
   Future<Map<String, dynamic>> getAboutMe() async {
     final response = await _client.from('about_me').select().single();
