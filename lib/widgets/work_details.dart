@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../core/utils/colors_manager.dart';
 
 class WorkDetailsWidget extends StatelessWidget {
-  const WorkDetailsWidget({super.key});
+  final Map<String, dynamic> work;
+
+  const WorkDetailsWidget({super.key, required this.work});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +14,10 @@ class WorkDetailsWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset("assets/images/work.png"),
-          SizedBox(
-            height: 18,
-          ),
-
+          Image.network(work['imageUrl']),  // Use dynamic image URL
+          SizedBox(height: 18),
           Text(
-            "November 24, 2019",
+            work['date'],  // Use dynamic date
             style: TextStyle(
               fontWeight: FontWeight.w400,
               fontFamily: "Poppins",
@@ -27,7 +26,7 @@ class WorkDetailsWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "Some Case Study",
+            work['title'],  // Use dynamic title
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontFamily: "Poppins",
@@ -36,7 +35,7 @@ class WorkDetailsWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nUt sed aliquam sollicitudin rhoncus morbi.\nTincidunt quam sem elit a convallis.\nEget ipsum, velit vitae eu nunc, consequat, at.",
+            work['description'],  // Use dynamic description
             style: TextStyle(
               fontWeight: FontWeight.w400,
               fontFamily: "Poppins",
